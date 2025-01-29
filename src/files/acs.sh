@@ -13,7 +13,7 @@ if [[ ! "$konfirmasi" =~ ^[Yy]$ ]]; then
 fi
 
 apt update 
-apt install curl git -y
+apt install curl git openssh-sftp-server -y
 
 echo -e "${YELLOW}Mengatur permit SSH${RESET}"
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config

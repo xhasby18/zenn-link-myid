@@ -17,6 +17,7 @@ apt install curl git openssh-sftp-server -y
 
 echo -e "${YELLOW}Mengatur permit SSH${RESET}"
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+systemctl restart ssh
 
 echo -e "${YELLOW}Memulai instalasi GenieACS...${RESET}"
 echo "Menginstal Node.js..."
@@ -135,5 +136,32 @@ systemctl start genieacs-fs
 systemctl enable genieacs-ui
 systemctl start genieacs-ui
 
+read -p "Lanjut Intall Python? (y/n): " konfirmasiLanjut
+if [[ ! "$konfirmasiLanjut" =~ ^[Yy]$ ]]; then
+    echo -e "${GREEN}Instalasi GenieACS selesai!${RESET}"
+    echo -e "${GREEN}Buka http://$lokal_ip:3000 di browser untuk akses UI GenieACS.${RESET}"
+    exit 1
+fi
+
+rm /etc/apt/sources.list
+
+cat <<EOF > /etc/apt/sources.list
+deb http://deb.debian.org/debian bullseye main contrib non-free
+deb-src http://deb.debian.org/debian bullseye main contrib non-free
+
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free
+deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free
+
+deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
+
+deb http://security.debian.org/debian-security/ bullseye-security main contrib non-free
+deb-src http://security.debian.org/debian-security/ bullseye-security main contrib non-free
+EOF
+
+apt update
+apt install python3 python3-pip -y
+
 echo -e "${GREEN}Instalasi GenieACS selesai!${RESET}"
 echo -e "${GREEN}Buka http://$lokal_ip:3000 di browser untuk akses UI GenieACS.${RESET}"
+exit 1

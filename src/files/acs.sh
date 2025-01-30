@@ -143,6 +143,7 @@ if [[ ! "$konfirmasiLanjut" =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
 rm /etc/apt/sources.list
 
 cat <<EOF > /etc/apt/sources.list
@@ -162,6 +163,26 @@ EOF
 apt update
 apt install python3 python3-pip -y
 
-echo -e "${GREEN}Instalasi GenieACS selesai!${RESET}"
+read -p "Lanjut Setup bot? (y/n): " konfirmasiBot
+if [[ ! "$konfirmasiBot" =~ ^[Yy]$ ]]; then
+    echo -e "${GREEN}Instalasi GenieACS dan Python selesai!${RESET}"
+    echo -e "${GREEN}Buka http://$lokal_ip:3000 di browser untuk akses UI GenieACS.${RESET}"
+    exit 1
+fi
+
+TOKEN_BOT="7598281224:AAFjQlmQzjc_O11Zc4WyMloni_Gnv4imTaQ"
+
+git clone https://github.com/Nandaxy/telebot-acs
+cd telebot-acs
+pip install -r requirements.txt
+
+#mengubah file config.py
+# TELEGRAM_TOKEN = ""
+# API_URL = "http://localhost:7557"
+# SSIDKE = 1
+
+sed -i "s|TELEGRAM_TOKEN = \"\"|TELEGRAM_TOKEN = \"$TOKEN_BOT\"|g" config.py
+
+echo -e "${GREEN}Instalasi GenieACS selesai dan Bot telah di setup!${RESET}"
 echo -e "${GREEN}Buka http://$lokal_ip:3000 di browser untuk akses UI GenieACS.${RESET}"
 exit 1

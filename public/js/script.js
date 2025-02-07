@@ -161,9 +161,6 @@ $(document).ready(function () {
             </div>`;
             } else {
                 displaySpotify.innerHTML = "<p>~ No listening to anything</p>";
-                if (intervalId) {
-                    clearInterval(intervalId);
-                }
             }
         } catch (error) {
             console.error("Error fetching now playing data:", error);
@@ -173,4 +170,19 @@ $(document).ready(function () {
     setInterval(() => getNowPlaying(), 10000); //refesh 10s
 
     getNowPlaying();
+
+    const getCount = async () => {
+      const displayCounter = document.getElementById("count");
+        try {
+            const res = await fetch(
+                "https://api-zenn.vercel.app/api/tool/counter/view?q=zenn_my_id_web_counter&secret=cat_lover_c2VjcmV0"
+            );
+            const data = await res.json();
+            const counter = data.data.count;
+            displayCounter.innerHTML = counter.toLocaleString();
+        } catch (error) {
+            console.error("Error fetching counter data:", error);
+        }
+    }
+    getCount();
 });

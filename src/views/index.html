@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zenn</title>
+    <title>Zenn - Shortlink</title>
     <!-- SEO -->
     <meta name="description" content="Personal Website of nandaaa_79" />
     <meta name="keywords" content="script auto install radius" />
@@ -27,6 +27,10 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   
     <!-- favicon -->
     <link
       rel="icon"
@@ -42,12 +46,11 @@
       href="/img/favicon/apple-touch-icon.png"
     />
     <meta name="apple-mobile-web-app-title" content="Zenn" />
-    <link rel="manifest" href="/img/favicon/site.webmanifest" />
   </head>
   <body>
     <div class="container">
       <div class="sampul"></div>
-      <div class="profil">
+      <div class="profil" data-aos="fade-down">
         <img
           src="https://i.pinimg.com/564x/53/71/7c/53717c8de4d9adca0010c37aa107b3ef.jpg"
           alt="profil"
@@ -72,31 +75,31 @@
       </div>
       <div class="div-tengah">
         <div class="hoby1">
-          <div class="ini-hoby">
+          <div class="ini-hoby" data-aos="fade-right" data-aos-duration="1000">
             <p>🎮 Gaming</p>
           </div>
-          <div class="ini-hoby">
+          <div class="ini-hoby" data-aos="fade-right" data-aos-duration="1000">
             <p>😂 Meme</p>
           </div>
-          <div class="ini-hoby">
+          <div class="ini-hoby" data-aos="fade-left" data-aos-duration="1000">
             <p>🎵 Musik</p>
           </div>
-          <div class="ini-hoby">
+          <div class="ini-hoby" data-aos="fade-left" data-aos-duration="1000">
             <p>🗑️ Editing</p>
           </div>
         </div>
       </div>
       <div class="div-tengah">
         <div class="hoby2">
-          <div class="ini-hoby">
+          <div class="ini-hoby" data-aos="fade-right" data-aos-duration="1000">
             <p>🍀 Anime</p>
           </div>
-          <div class="ini-hoby">
+          <div class="ini-hoby" data-aos="fade-left" data-aos-duration="1000">
             <p>🎥 Movie</p>
           </div>
         </div>
       </div>
-      <div class="sosial div-tengah">
+      <div class="sosial div-tengah" data-aos="zoom-in">
         <a href="https://www.instagram.com/nandaaa_79/" target="_blank">
           <span
             ><svg
@@ -152,9 +155,9 @@
         </a>
       </div>
       <h1 class="title-of-link">Short Link</h1>
-      <div class="link div-tengah">
+      <div class="link div-tengah" data-aos="fade-up">
         <div id="openModalDownload" class="item-link">
-          <div class="item-name">
+          <div class="item-name" >
             <span>️🔗</span>
             <p>Download</p>
           </div>
@@ -177,11 +180,7 @@
           </span>
         </div>
 
-          <a
-          href="https://store.zenn.my.id"
-          target="_blank"
-          class="item-link"
-        >
+        <a href="https://store.zenn.my.id" target="_blank" class="item-link">
           <div class="item-name">
             <span>️🛒</span>
             <p>Zenn Store</p>
@@ -203,15 +202,10 @@
               />
             </svg>
           </span>
-          </a>
-        
-     
+        </a>
+
         <h1 class="title-of-link">My Projects</h1>
-        <a
-          href="https://music.zenn.my.id"
-          target="_blank"
-          class="item-link"
-        >
+        <a href="https://music.zenn.my.id" target="_blank" class="item-link">
           <div class="item-name">
             <span>️🎵</span>
             <p>My Favorite Song</p>
@@ -234,11 +228,7 @@
             </svg>
           </span>
         </a>
-        <a
-          href="https://blog.zenn.my.id"
-          target="_blank"
-          class="item-link"
-        >
+        <a href="https://blog.zenn.my.id" target="_blank" class="item-link">
           <div class="item-name">
             <span>️📝</span>
             <p>My Blog</p>
@@ -288,11 +278,7 @@
             </svg>
           </span>
         </a>
-        <a
-          href="https://api.zenn.my.id"
-          target="_blank"
-          class="item-link"
-        >
+        <a href="https://api.zenn.my.id" target="_blank" class="item-link">
           <div class="item-name">
             <span>️🔥</span>
             <p>Zenn API</p>
@@ -316,11 +302,7 @@
           </span>
         </a>
 
-          <a
-          href="https://note.zenn.my.id"
-          target="_blank"
-          class="item-link"
-        >
+        <a href="https://note.zenn.my.id" target="_blank" class="item-link">
           <div class="item-name">
             <span>️🗒️</span>
             <p>Open Note</p>
@@ -342,8 +324,7 @@
               />
             </svg>
           </span>
-          </a>
-        
+        </a>
       </div>
       <!-- spotify -->
       <div class="spotify div-tengah">
@@ -353,7 +334,7 @@
     </div>
 
     <div class="footer">
-      <p>ゼン</p>
+      <p>ゼン - ビュー : <span id="count"></span></p>
       <p>&copy; 2024 - Zenn, Nnny.</p>
     </div>
 
@@ -395,5 +376,8 @@
     </div>
     <!-- scriptnya -->
     <script src="js/script.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

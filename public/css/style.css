@@ -53,7 +53,7 @@ body {
 .profil img {
     width: 100px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: solid 1px #1d1d1dbe;
 }

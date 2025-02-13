@@ -39,7 +39,7 @@ body {
     background-image: url("/img/bg.png");
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 25vh;
+    min-height: 50vh;
 }
 
 .profil {

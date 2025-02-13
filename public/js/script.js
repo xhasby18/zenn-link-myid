@@ -127,7 +127,7 @@ $(document).ready(function () {
     const getNowPlaying = async () => {
         try {
             const res = await fetch(
-                "https://api-zenn.vercel.app/api/me/spotify/now-playing"
+                "https://6t1qitgw-1d0qncop-4gkic1vddz20.aca2-preview.marscode.dev/?access_token=BQCMQj62M9HLVPiJOkHlqM16836LaqJwL6UMk8Gyj9Urt3uh5aaD-lhf3cbGzO-05lTMIocPOLwem1M5h8cUBksRSc88VaNQ_mHuwDxTdV2yXXqiIfAkQ8Ux_076USb2p7Wzz0Rf92GeLDVd5myCSom7CPOmU-H73iCjN9DbhmeMjpe4ITFsJ7ZZqVrCm796NeK6L5Q2da9pHghdTQKer8ITk8wRlE-4F_i10JpRO9-meQ"
             );
             const data = await res.json();
 
